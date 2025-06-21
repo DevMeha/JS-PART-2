@@ -2,19 +2,24 @@
 "use strict";
 
 // MAX VALUE
+const temperatures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
 
 const calcTempAmplitude = function (temps) {
   let max = temps[0];
   let min = temps[0];
   for (let i = 0; i < temps.length; i++) {
-    if (temps[i] > max) {
+    const curtemp = temps[i];
+    if (typeof curtemp !== "number") continue;
+    if (curtemp > max) {
       max = temps[i];
     }
-    if (temps[0] < min) {
-      min = temps[0];
+    if (curtemp < min) {
+      min = temps[i];
     }
   }
-  console.log(max);
-  console.log(min);
+  console.log(` MAX: ${max}`);
+  console.log(` MIN:${min}`);
+  return max - min;
 };
-calcTempAmplitude([1, 3, 7, 4, 23]);
+const amplitude = calcTempAmplitude(temperatures);
+console.log(amplitude);
