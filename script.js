@@ -24,13 +24,30 @@
 // const amplitude = calcTempAmplitude(temperatures);
 // console.log(amplitude);
 
-const measureKelvin = function () {
-  const mesurement = {
-    type: "temp",
-    unit: "celsitus",
-    value: Number(prompt("Degrees celsitus")),
-  };
-  const kelvin = mesurement.value + 273;
-  return kelvin;
+// const measureKelvin = function () {
+//   const mesurement = {
+//     type: "temp",
+//     unit: "celsitus",
+//     value: Number(prompt("Degrees celsitus")),
+//   };
+//   const kelvin = mesurement.value + 273;
+//   return kelvin;
+// };
+// console.log(measureKelvin());
+
+// CHALLENGE
+
+// TEST DATA : [17,21,23]
+// EXAMPLE : [[17,21,23] will print "... 17°C in 1 day . ... 21°	C in 2 days ... 23°	C in 3 days ..."]
+
+const data1 = [17, 21, 23];
+const day = [];
+
+const printForcecast = function (arr) {
+  let str = "";
+  for (let i = 0; i < arr.length; i++) {
+    str = str + `${arr[i]}°C in ${i + 1} day ...`;
+  }
+  console.log(str);
 };
-console.log(measureKelvin());
+printForcecast(data1);
